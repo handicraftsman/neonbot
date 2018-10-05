@@ -2,6 +2,8 @@
 
 #include <dlfcn.h>
 
+#include <cxxabi.h>
+
 typedef void (*InitFunc)(std::string name);
 typedef void (*DeinitFunc)();
 
@@ -36,4 +38,18 @@ NB::Plugin::~Plugin() {
     deinitf();
   }
   log.debug("Deinitialized myself");
+}
+
+void NB::Plugin::handle_event(NB::EventPtr e) {
+  if (ehm) {
+    try {
+      ehm->handle(e);
+    } catch (std::exception& exc) {
+      char* exc_name = abi::__cxa_demangle(typeid(exc).name(), NULL, NULL, NULL);
+      char* e_name = abi::__cxa_demangle(typeid(*e.get()).name(), NULL, NULL, NULL);
+      log.error("Exception in %s\n\t%s\n\t%s", e_name, exc_name, exc.what());
+    } catch (...) {
+      log.error("Caught an unknown error");
+    }
+  }
 }

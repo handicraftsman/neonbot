@@ -93,8 +93,8 @@ int main(int argc, char** argv) {
   dm->set<NB::ConfigService>(new NB::ConfigService(config_file));
   dm->set<NB::EventService>(new NB::EventService());
   dm->set<NB::ConnectionService>(new NB::ConnectionService(dm));
+  dm->set<NB::PluginService>(new NB::PluginService(dm));
   dm->set<NB::RedisService>(new NB::RedisService(dm));
-  //dm->set<pb::plugin_service>(new pb::plugin_service(dm, plugin_dirs));
 
   NB::Bot* bot = new NB::Bot(dm);
 

@@ -25,6 +25,7 @@ PPM_PACKAGE(p) {
   std::vector<std::string> lib_src {
     "neonbot/bot.cpp",
     "neonbot/event.cpp",
+    "neonbot/plugin.cpp",
 
     "neonbot/config_service.cpp",
     "neonbot/connection_service.cpp",

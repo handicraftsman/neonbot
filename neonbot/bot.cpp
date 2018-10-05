@@ -2,6 +2,7 @@
 
 #include "config_service.hpp"
 #include "event_service.hpp"
+#include "plugin_service.hpp"
 #include "redis_service.hpp"
 
 #include "events.hpp"
@@ -45,6 +46,8 @@ NB::BotPriv::BotPriv(Bot* pub, std::weak_ptr<particledi::dm> dm)
 , log("bot")
 , ehm(new NB::EventHandlerMap())
 {
+  dm.lock()->get<NB::PluginService>()->connect_to_event_service();
+
   ehm->set<NB::EventHello>([this] (NB::EventHelloPtr e) {
     log("Hello, World!");
   });
