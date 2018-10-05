@@ -93,6 +93,7 @@ int main(int argc, char** argv) {
   dm->set<NB::BoostIosService>(new NB::BoostIosService());
   dm->set<NB::ConfigService>(new NB::ConfigService(config_file));
   dm->set<NB::EventService>(new NB::EventService());
+  dm->set<NB::RequestService>(new NB::RequestService(dm));
   dm->set<NB::ConnectionService>(new NB::ConnectionService(dm));
   dm->set<NB::PluginService>(new NB::PluginService(dm));
   dm->set<NB::RedisService>(new NB::RedisService(dm));

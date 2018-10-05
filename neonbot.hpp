@@ -4,6 +4,7 @@
 #include "neonbot/config.hpp"
 #include "neonbot/event.hpp"
 #include "neonbot/plugin.hpp"
+#include "neonbot/request.hpp"
 
 // events
 #include "neonbot/events.hpp"
@@ -11,6 +12,7 @@
 // services
 #include "neonbot/boost_ios_service.hpp"
 #include "neonbot/config_service.hpp"
+#include "neonbot/request_service.hpp"
 #include "neonbot/connection_service.hpp"
 #include "neonbot/event_service.hpp"
 #include "neonbot/plugin_service.hpp"

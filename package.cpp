@@ -26,9 +26,11 @@ PPM_PACKAGE(p) {
     "neonbot/bot.cpp",
     "neonbot/event.cpp",
     "neonbot/plugin.cpp",
+    "neonbot/request.cpp",
 
     "neonbot/boost_ios_service.cpp",
     "neonbot/config_service.cpp",
+    "neonbot/request_service.cpp",
     "neonbot/connection_service.cpp",
     "neonbot/event_service.cpp",
     "neonbot/plugin_service.cpp",
