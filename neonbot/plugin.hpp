@@ -24,3 +24,8 @@ namespace NB {
   };
   
 }
+
+extern "C" {
+  void nb_init(std::string name);
+  void nb_deinit();
+}
