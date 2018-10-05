@@ -90,6 +90,7 @@ int main(int argc, char** argv) {
   }
 
   particledi::dm_ptr dm = particledi::dm::create();
+  dm->set<NB::BoostIosService>(new NB::BoostIosService());
   dm->set<NB::ConfigService>(new NB::ConfigService(config_file));
   dm->set<NB::EventService>(new NB::EventService());
   dm->set<NB::ConnectionService>(new NB::ConnectionService(dm));

@@ -1,5 +1,6 @@
 #include "bot.hpp"
 
+#include "boost_ios_service.hpp"
 #include "config_service.hpp"
 #include "event_service.hpp"
 #include "plugin_service.hpp"
@@ -87,6 +88,8 @@ void NB::BotPriv::load_config() {
 
 void NB::BotPriv::start() {
   log.debug("Poking the connection service to establish a connection to the Discord API");
+
+  dm.lock()->get<NB::BoostIosService>()->join();
 }
 
 /*
